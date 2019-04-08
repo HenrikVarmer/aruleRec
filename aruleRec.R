@@ -13,7 +13,7 @@ aruleRec <- function(data,
                      maxlen     = as.integer(length(unique(data$productkey)) + 1)) {
 
 rules <- rule_flow(data,
-                   support,
+                   support, 
                    confidence, 
                    minlen,
                    maxlen)
