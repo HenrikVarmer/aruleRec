@@ -20,13 +20,13 @@ Example data structure for rule mining:
 Example function input:
 
 ```R
-aruleRec(data = dat, # dataframe
-         productkey = ProductKey, #item ID column
+aruleRec(data        = dat, # dataframe
+         productkey  = ProductKey, #item ID column
          customerkey = CustomerKey, # contact ID column
-         minlen = 2, 
-         maxlen = 20, 
-         support = 0.01, 
-         confidence = 0.7)
+         minlen      = 2, 
+         maxlen      = 20, 
+         support     = 0.01, 
+         confidence  = 0.7)
 ```
 
 
