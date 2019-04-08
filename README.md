@@ -2,9 +2,9 @@
 
 ### Easy and fast item recommendations with association rule learning in R
 
-The aruleRec function takes a dataframe as input in tidy (long) format with one observation (customer-item pair) per row. This data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names must be provided as arguments to the function, along with the hyperparameters for association rule mining: confidence, support, minlen, and maxlen.
+The aruleRec function takes a dataframe as input in tidy (long) format with one observation (customer-item pair) per row. This data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names must be provided as arguments to the function, along with the hyperparameters for association rule mining: confidence, support, minlen, and maxlen. Note: This library relies heaviliy on the [arules](https://cran.r-project.org/web/packages/arules/index.html) package.
 
-The function returns a dataframe with all customers and corresponding cross-selling recommendations and rule quality parameters.
+The ```R aruleRec() ``` function returns a dataframe with all customers and corresponding cross-selling recommendations and rule quality parameters.
 
 Example data structure for rule mining:
 
