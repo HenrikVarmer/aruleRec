@@ -4,6 +4,7 @@ The aruleRec function takes a dataframe as input in tidy (long) format with one 
 
 Example function input:
 
+```R
 aruleRec(data = dat, # dataframe
          productkey = ProductId, #item ID column
          customerkey = ContactKey, # contact ID column
@@ -11,3 +12,7 @@ aruleRec(data = dat, # dataframe
          maxlen = 20, 
          support = 0.01, 
          confidence = 0.7)
+
+```
+
+
