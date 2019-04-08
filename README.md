@@ -7,18 +7,18 @@ The function returns a dataframe with all customers and corresponding cross-sell
 Example data structure for rule mining:
 
 | ContactKey    | ProductKey    |
-| ------------- |:-------------:|
-| 1000          | 4             |
-| 1000          | 13            |
-| 1001          | 4             |
-| 1001          | 16            |
+| ------------: |--------------:|
+| 1000          | 27            |
+| 1000          | 24            |
+| 1001          | 22            |
+| 1001          | 27            |
 
 
 Example function input:
 
 ```R
 aruleRec(data = dat, # dataframe
-         productkey = ProductId, #item ID column
+         productkey = ProductKey, #item ID column
          customerkey = ContactKey, # contact ID column
          minlen = 2, 
          maxlen = 20, 
@@ -27,3 +27,10 @@ aruleRec(data = dat, # dataframe
 ```
 
 
+Example output:
+
+| lhs	         | ContactKey |	rhs  |	support | confidence  | lift   |	count|
+|----------------:|-----------:|--------:|----------:|------------:|-------:|--------:|
+| 20,23,24,27     |     1001   |	29   |	0.01    | 0.73	    | 4.24   |	1305 |
+| 22,27,33        |     1002   |	20   |	0.01    | 0.85	    | 1.97   |	1453 |
+| 11,20,33        |     1003   |	27   |	0.08    | 0.75	    | 1.42   |	1151 |
