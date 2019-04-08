@@ -4,6 +4,16 @@ The aruleRec function takes a dataframe as input in tidy (long) format with one 
 
 The function returns a dataframe with all customers and corresponding cross-selling recommendations and rule quality parameters.
 
+Example data structure for rule mining:
+
+| ContactKey    | ProductKey    |
+| ------------- |:-------------:|
+| 1000          | 4             |
+| 1000          | 13            |
+| 1001          | 4             |
+| 1001          | 16            |
+
+
 Example function input:
 
 ```R
