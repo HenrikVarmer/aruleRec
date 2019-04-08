@@ -11,8 +11,13 @@ aruleRec <- function(data,
                      confidence = 0.7, 
                      minlen     = 2, 
                      maxlen     = as.integer(length(unique(data$productkey)) + 1)) {
+  
+customerkey <- enquo(customerkey)
+productkey  <- enquo(productkey)
 
 rules <- rule_flow(data,
+                   customerkey,
+                   productkey,
                    support, 
                    confidence, 
                    minlen,
@@ -20,9 +25,6 @@ rules <- rule_flow(data,
 
 all_rules <- rules$rules %>% 
   mutate(lhs = as.character(lhs))
-
-customerkey <- enquo(customerkey)
-productkey  <- enquo(productkey)
 
 lhs_dat <- data %>% 
   select(!! customerkey, !! productkey) %>%
