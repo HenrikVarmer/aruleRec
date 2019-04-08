@@ -2,6 +2,8 @@
 
 The aruleRec function takes a dataframe as input in tidy (long) format with one observation (transaction) per row. This data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names must be provided as arguments to the function, along with the hyperparameters for association rule mining: confidence, support, minlen, and maxlen.
 
+The function returns a dataframe with all customers and corresponding cross-selling recommendations and rule quality parameters.
+
 Example function input:
 
 ```R
@@ -12,7 +14,6 @@ aruleRec(data = dat, # dataframe
          maxlen = 20, 
          support = 0.01, 
          confidence = 0.7)
-
 ```
 
 
