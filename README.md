@@ -18,16 +18,21 @@ Example data structure for rule mining:
 | 1001          | 27            |
 
 
-Example function input:
+Example function use:
 
 ```R
-aruleRec(data        = dat,         # dataframe
-         productkey  = ProductKey,  # item ID column
-         customerkey = CustomerKey, # customer ID column
-         minlen      = 2, 
-         maxlen      = 20, 
-         support     = 0.01, 
-         confidence  = 0.7)
+dat <- read.csv("your_sales_data.csv", sep = ";", stringsAsFactors = FALSE)
+
+recommendations <- aruleRec(data         = dat, # dataframe
+                            productkey   = ProductKey, #item ID column
+                            customerkey  = CustomerKey, # contact ID column
+                            minlen       = 2, 
+                            maxlen       = 20, 
+                            support      = 0.01, 
+                            confidence   = 0.7)
+
+head(recommendations)
+
 ```
 
 
