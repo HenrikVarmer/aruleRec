@@ -1,8 +1,17 @@
-library(dplyr)
-library(arules)
-library(tidyr)
-source("complete_fun.R")
-source("rule_flow.R")
+
+#' Easy and fast recommendations with association rule learning in R
+#'
+#' The aruleRec function generates recommendations from an input dataframe.
+#' @param data A dataframe containing dataframe as input in tidy format with one customer-item pair per row. This data.frame must contain two columns: a customer ID and a product ID.
+#' @param customerkey The column containing customer ID's
+#' @param productkey The column containing item ID's
+#' @param support Minimum support of the mined association rules
+#' @param confidence Minimum confidence of the mined association rules
+#' @param minlen Minimum length of the mined association rules
+#' @param maxlen Maximum length of the mined association rules
+#' @export
+#' @examples
+#' aruleRec(data = dat, productkey = ProductKey, customerkey = CustomerKey, minlen = 2, maxlen = 20, support = 0.01, confidence = 0.7)
 
 aruleRec <- function(data, 
                      productkey, 
@@ -16,8 +25,8 @@ customerkey <- enquo(customerkey)
 productkey  <- enquo(productkey)
 
 rules <- rule_flow(data,
-                   customerkey,
-                   productkey,
+                   !! customerkey,
+                   !! productkey,
                    support, 
                    confidence, 
                    minlen,
