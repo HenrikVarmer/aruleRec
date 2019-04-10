@@ -25,8 +25,8 @@ customerkey <- enquo(customerkey)
 productkey  <- enquo(productkey)
 
 rules <- rule_flow(data,
-                   customerkey,
-                   productkey,
+                   !! customerkey,
+                   !! productkey,
                    support, 
                    confidence, 
                    minlen,

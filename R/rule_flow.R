@@ -15,20 +15,21 @@
 
 rule_flow <- function(data, customerkey, productkey, support, confidence, minlen, maxlen) {
   
-  items_by_contact    <- create_items_by_contact(data, customerkey, productkey)
+  customerkey <- enquo(customerkey)
+  productkey  <- enquo(productkey)
+  
+  items_by_contact    <- create_items_by_contact(data, !! customerkey, !! productkey)
   
   transactions        <- create_transactions(items_by_contact, 
-                                             productkey,
+                                             !! productkey,
                                              "rownumber", 
-                                             customerkey)
+                                             !! customerkey)
   
   rules               <- create_rules(transactions, 
                                       support, 
                                       confidence, 
                                       minlen, 
                                       maxlen)
-  
-  rules$rhs           <- as.integer(rules$rhs)
   
   return(list(rules = rules, transactions = transactions))
 }

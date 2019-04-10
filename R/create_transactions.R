@@ -9,6 +9,10 @@
 #' ccreate_transactions(items_by_contact, productkey, customerkey)
 
 create_transactions <- function(items_by_contact, productkey, value, customerkey){
+  
+  customerkey <- enquo(customerkey)
+  productkey  <- enquo(productkey)
+  
   return(
     create_data_matrix(items_by_contact, productkey, value, customerkey)%>% 
       as.matrix() %>% 

@@ -10,6 +10,9 @@
 
 create_items_by_contact <- function(data, customerkey, productkey){
   
+  customerkey <- enquo(customerkey)
+  productkey  <- enquo(productkey)
+  
   return(
     data %>% 
       select(!! customerkey,!! productkey) %>% 

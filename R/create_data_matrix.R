@@ -12,7 +12,7 @@
 create_data_matrix <- function(items_by_contact, productkey, value, customerkey){
   return(
     items_by_contact %>%
-      spread(!! colcol,!! value, fill = 0)  %>%
-      select(!! -colrow)
+      spread(!! productkey,!! value, fill = 0)  %>%
+      select(!! -customerkey)
   )
 }
