@@ -24,7 +24,7 @@ Example function use:
 dat <- read.csv("your_sales_data.csv", sep = ";", stringsAsFactors = FALSE)
 
 recommendations <- aruleRec(data         = dat,         # dataframe
-                            productkey   = ProductKey,  #item ID column
+                            productkey   = ProductKey,  # item ID column
                             customerkey  = CustomerKey, # contact ID column
                             minlen       = 2, 
                             maxlen       = 20, 
