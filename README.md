@@ -21,7 +21,7 @@ Example data structure for rule mining:
 Example function use:
 
 ```R
-dat <- read.csv("your_sales_data.csv", sep = ";", stringsAsFactors = FALSE)
+dat <- read.csv("your_sales_data.csv")
 
 recommendations <- aruleRec(data         = dat,         # dataframe
                             productkey   = ProductKey,  # item ID column
