@@ -21,8 +21,8 @@ Example data structure for rule mining:
 Example function input:
 
 ```R
-aruleRec(data        = dat, # dataframe
-         productkey  = ProductKey, #item ID column
+aruleRec(data        = dat,         # dataframe
+         productkey  = ProductKey,  #item ID column
          customerkey = CustomerKey, # contact ID column
          minlen      = 2, 
          maxlen      = 20, 
