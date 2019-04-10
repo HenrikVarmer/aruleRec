@@ -22,8 +22,8 @@ Example function input:
 
 ```R
 aruleRec(data        = dat,         # dataframe
-         productkey  = ProductKey,  #item ID column
-         customerkey = CustomerKey, # contact ID column
+         productkey  = ProductKey,  # item ID column
+         customerkey = CustomerKey, # customer ID column
          minlen      = 2, 
          maxlen      = 20, 
          support     = 0.01, 
