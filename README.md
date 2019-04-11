@@ -8,7 +8,7 @@ The aruleRec function takes a dataframe as input in tidy (long) format with one 
 
 The ```aruleRec()``` function returns a dataframe with customers and corresponding cross-selling recommendations and rule quality parameters. Only customers with recommendations are returned. 
 
-Example data structure for rule mining:
+Input data structure for generating recommendations:
 
 | CustomerKey   | ProductKey    |
 | ------------: |--------------:|
@@ -30,8 +30,6 @@ recommendations <- aruleRec(data         = dat,         # dataframe
                             maxlen       = 20, 
                             support      = 0.01, 
                             confidence   = 0.7)
-
-head(recommendations)
 
 ```
 
