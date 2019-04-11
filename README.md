@@ -6,7 +6,7 @@ The aruleRec function takes a dataframe as input in tidy (long) format with one 
 
 *Note: This library relies on the [arules](https://cran.r-project.org/web/packages/arules/index.html) package for mining association rules.*
 
-The ```aruleRec()``` function returns a dataframe with all customers and corresponding cross-selling recommendations and rule quality parameters.
+The ```aruleRec()``` function returns a dataframe with customers and corresponding cross-selling recommendations and rule quality parameters. Only customers with recommendations are returned. 
 
 Example data structure for rule mining:
 
