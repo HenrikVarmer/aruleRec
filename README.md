@@ -2,7 +2,7 @@
 
 ### Easy and fast recommendations with association rule learning in R
 
-The aruleRec function takes a dataframe as input in tidy (long) format with one observation (customer-item pair) per row. This data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names must be provided as arguments to the function, along with the hyperparameters for association rule mining: confidence, support, minlen, and maxlen. 
+The aruleRec function takes a dataframe as input in tidy (long) format with one observation (customer-item pair) per row. This data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names must be provided as arguments to the function, along with the hyperparameters for [association rule mining](https://en.wikipedia.org/wiki/Association_rule_learning) - confidence, support, minlen, and maxlen. 
 
 *Note: This library relies heaviliy on the [arules](https://cran.r-project.org/web/packages/arules/index.html) package.*
 
