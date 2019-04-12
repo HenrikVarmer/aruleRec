@@ -36,11 +36,11 @@ recommendations <- aruleRec(data         = dat,         # dataframe
 
 Example output:
 
-| lhs	         | CustomerKey|	rhs  |	support | confidence  | lift   |	count|
-|----------------:|-----------:|--------:|----------:|------------:|-------:|--------:|
-| 20,23,24,27     |     1001   |	29   |	0.01    | 0.73	    | 4.24   |	1305 |
-| 22,27,33        |     1002   |	20   |	0.01    | 0.85	    | 1.97   |	1453 |
-| 11,20,33        |     1003   |	27   |	0.08    | 0.75	    | 1.42   |	1151 |
+| item_history    | CustomerKey|	recommendation  |	support | confidence  | lift   |	count|
+|----------------:|-----------:|-----------------:|----------:|------------:|-------:|--------:|
+| 20,23,24,27     |     1001   |	           29   |	0.01    | 0.73	    | 4.24   |	1305 |
+| 22,27,33        |     1002   |	           20   |	0.01    | 0.85	    | 1.97   |	1453 |
+| 11,20,33        |     1003   |	           27   |	0.08    | 0.75	    | 1.42   |	1151 |
 
 Here, the lhs column constitutes the customer purchase history. The rhs column indicates the cross-selling opportunity based on the mined association rules. 
 

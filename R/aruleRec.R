@@ -49,9 +49,13 @@ lhs_dat <- data %>%
   select(!! customerkey, lhs) %>%
   as.data.frame()
 
-recommendations <- complete_fun(merge(x = lhs_dat, y = all_rules, by = "lhs", all.x = TRUE), "rhs") %>% 
+recommendations <- complete_fun(merge(x = lhs_dat, 
+                                      y = all_rules, 
+                                      by = "lhs", 
+                                      all.x = TRUE), "rhs") %>% 
   arrange(desc(lift)) %>% 
   filter(lift >= 1) %>% 
+  rename(item_history = lhs, recommendation = rhs) %>% 
   as.data.frame()
 
 return(recommendations)
