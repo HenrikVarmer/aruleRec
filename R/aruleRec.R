@@ -13,14 +13,6 @@
 #' @examples
 #' aruleRec(data = dat, productkey = ProductKey, customerkey = CustomerKey, minlen = 2, maxlen = 20, support = 0.01, confidence = 0.7)
 
-
-export_function <- function(...) {
-  arg.list      <- list(...)
-  names         <- all.names(match.call())[-1]
-  for (i in seq_along(names)) assign(names[i],arg.list[[i]],.GlobalEnv)
-}
-
-
 aruleRec <- function(data, 
                      productkey, 
                      customerkey, 
@@ -66,7 +58,7 @@ recommendations <- complete_fun(merge(x = lhs_dat,
   rename(item_history = lhs, recommendation = rhs) %>% 
   as.data.frame()
 
-export_function(lhs_dat, all_rules)
+export_function(all_rules)
 
 return(recommendations)
 }
