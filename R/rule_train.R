@@ -32,8 +32,7 @@ rule_train <- function(data,
                        maxlen)
     
     rule_train <- rules$rules %>% 
-      mutate(lhs = as.character(lhs)) %>% 
-      as.data.frame()
+      mutate(lhs = as.character(lhs))
     
     export_function(rule_train)
     

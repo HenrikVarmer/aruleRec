@@ -14,8 +14,6 @@ rule_predict <- function(rules, newdata, customerkey, productkey) {
   customerkey <- enquo(customerkey)
   productkey  <- enquo(productkey)
   
-  all_rules <- test[1]
-  
   lhs_dat <- newdata %>% 
     select(!! customerkey, !! productkey) %>%
     group_by(!! customerkey, !! productkey) %>% 
@@ -30,7 +28,7 @@ rule_predict <- function(rules, newdata, customerkey, productkey) {
     select(!! customerkey, lhs) %>%
     as.data.frame()
   
-  predictions <- complete_fun(merge(x = lhs_dat, y = all_rules, by = "lhs", all.x = TRUE), "rhs") %>% 
+  predictions <- complete_fun(merge(x = lhs_dat, y = rules, by = "lhs", all.x = TRUE), "rhs") %>% 
     arrange(desc(lift)) %>% 
     filter(lift >= 1) %>% 
     as.data.frame()
