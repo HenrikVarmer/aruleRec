@@ -1,4 +1,12 @@
-
+#' Mines association rules from an input data.frame
+#'
+#' This function mnes association rules from an input data.frame but does nothing more
+#' @param items_by_contact A dataframe containing items by contact
+#' @param productkey The column containing item ID's
+#' @param customerkey The column containing customer ID's
+#' @export
+#' @examples
+#' rule_train(data, productkey, customerkey, cupport, confidence, minlen, maxlen)
 
 rule_train <- function(data, 
                        productkey, 
