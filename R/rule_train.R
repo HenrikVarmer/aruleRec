@@ -53,8 +53,7 @@ rule_train <- function(data,
       filter(lift >= 1) %>% 
       as.data.frame()
     
-    rule_train@all_rules <- all_rules
-    rule_train@lhs_dat   <- lhs_dat
+    rule_train <- list(all_rules, lhs_dat)
     
     export_function(rule_train)
     
