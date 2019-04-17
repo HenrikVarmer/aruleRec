@@ -4,7 +4,7 @@
 \alias{create_transactions}
 \title{Create transactions object required for association rule mining}
 \usage{
-create_transactions(items_by_contact, productkey, customerkey)
+create_transactions(items_by_contact, productkey, value, customerkey)
 }
 \arguments{
 \item{items_by_contact}{A dataframe containing items by contact}

@@ -4,7 +4,7 @@
 \alias{create_data_matrix}
 \title{A data matrix function}
 \usage{
-create_data_matrix(items_by_contact, productkey, customerkey)
+create_data_matrix(items_by_contact, productkey, value, customerkey)
 }
 \arguments{
 \item{items_by_contact}{A dataframe containing items by contact}
