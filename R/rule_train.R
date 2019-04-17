@@ -1,9 +1,13 @@
 #' Mines association rules from an input data.frame
 #'
 #' This function mnes association rules from an input data.frame but does nothing more
-#' @param items_by_contact A dataframe containing items by contact
-#' @param productkey The column containing item ID's
+#' @param data A dataframe containing dataframe as input in tidy format with one customer-item pair per row. This data.frame must contain two columns: a customer ID and a product ID.
 #' @param customerkey The column containing customer ID's
+#' @param productkey The column containing item ID's
+#' @param support Minimum support of the mined association rules
+#' @param confidence Minimum confidence of the mined association rules
+#' @param minlen Minimum length of the mined association rules
+#' @param maxlen Maximum length of the mined association rules
 #' @export
 #' @examples
 #' rule_train(data, productkey, customerkey, cupport, confidence, minlen, maxlen)
