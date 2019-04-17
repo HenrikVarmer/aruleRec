@@ -30,11 +30,11 @@ rule_predict <- function(rules, newdata, customerkey, productkey) {
     select(!! customerkey, lhs) %>%
     as.data.frame()
   
-  recommendations <- complete_fun(merge(x = lhs_dat, y = all_rules, by = "lhs", all.x = TRUE), "rhs") %>% 
+  predictions <- complete_fun(merge(x = lhs_dat, y = all_rules, by = "lhs", all.x = TRUE), "rhs") %>% 
     arrange(desc(lift)) %>% 
     filter(lift >= 1) %>% 
     as.data.frame()
   
-  return(recommendations)
+  return(predictions)
   
 }
