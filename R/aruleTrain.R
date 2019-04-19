@@ -10,9 +10,9 @@
 #' @param maxlen Maximum length of the mined association rules
 #' @export
 #' @examples
-#' rule_train(data, productkey, customerkey, cupport, confidence, minlen, maxlen)
+#' aruleTrain(data, productkey, customerkey, cupport, confidence, minlen, maxlen)
 
-rule_train <- function(data, 
+aruleTrain <- function(data, 
                        productkey, 
                        customerkey, 
                        support    = 0.01, 
@@ -31,10 +31,10 @@ rule_train <- function(data,
                        minlen,
                        maxlen)
     
-    rule_train <- rules$rules %>% 
+    aruleTrain <- rules$rules %>% 
       mutate(lhs = as.character(lhs))
     
-    export_function(rule_train)
+    export_function(aruleTrain)
     
-    return(rule_train)
+    return(aruleTrain)
 }

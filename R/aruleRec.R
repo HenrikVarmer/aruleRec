@@ -16,6 +16,7 @@
 aruleRec <- function(data, 
                      productkey, 
                      customerkey, 
+                     keep_all   = FALSE,
                      support    = 0.01, 
                      confidence = 0.7, 
                      minlen     = 2, 
@@ -49,14 +50,17 @@ lhs_dat <- data %>%
   select(!! customerkey, lhs) %>%
   as.data.frame()
 
-recommendations <- complete_fun(merge(x = lhs_dat, 
-                                      y = all_rules, 
-                                      by = "lhs", 
-                                      all.x = TRUE), "rhs") %>% 
-  arrange(desc(lift)) %>% 
-  filter(lift >= 1) %>% 
-  rename(item_history = lhs, recommendation = rhs) %>% 
-  as.data.frame()
+if (missing(keep_all) | keep_all = FALSE) {
+  recommendations <- complete_fun(merge(x = lhs_dat, y = all_rules, by = "lhs"), "rhs") %>% 
+    arrange(desc(lift)) %>% 
+    filter(lift >= 1) %>% 
+    as.data.frame()
+} else if (keep_all == TRUE) {
+  recommendations <- merge(x = lhs_dat, y = all_rules, by = "lhs", all.x = TRUE) %>% 
+    arrange(desc(lift)) %>% 
+    filter(lift >= 1) %>% 
+    as.data.frame()
+}
 
 export_function(all_rules)
 
