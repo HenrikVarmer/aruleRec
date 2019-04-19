@@ -56,7 +56,7 @@ if (missing(keep_all) | keep_all == FALSE) {
     filter(lift >= 1) %>% 
     as.data.frame()
 } else if (keep_all == TRUE) {
-  recommendations <- merge(x = lhs_dat, y = all_rules, by = "lhs", all.x = TRUE) %>% 
+  recommendations <- merge(x = lhs_dat, y = all_rules, by = "lhs") %>% 
     arrange(desc(lift)) %>% 
     filter(lift >= 1) %>% 
     as.data.frame()
