@@ -44,3 +44,7 @@ Example output:
 
 Here, the lhs column constitutes the customer purchase history. The rhs column indicates the cross-selling opportunity based on the mined association rules. 
 
+To do :pencil:
+* Seamlessly suport multiple input formats (transaction data, tidy data, binary incidence matrix, etc.)
+* Build API 
+
