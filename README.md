@@ -49,4 +49,4 @@ Here, the lhs column constitutes the customer purchase history. The rhs column i
 To do :pencil:
 * Seamlessly suport multiple input formats (transaction data, tidy data, binary incidence matrix, etc.)
 * Build API 
-* Add option to "return all" or keep default: only customers with recommendations
+* Add option to "keep all" or (default): keep only customers with recommendations
