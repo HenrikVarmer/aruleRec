@@ -11,7 +11,7 @@
 #' @param maxlen Maximum length of the mined association rules
 #' @export
 #' @examples
-#' aruleRec(data = dat, productkey = ProductKey, customerkey = CustomerKey, minlen = 2, maxlen = 20, support = 0.01, confidence = 0.7)
+#' aruleRec(data = dat, productkey = ProductKey, customerkey = CustomerKey, keep_all = FALSE, minlen = 2, maxlen = 20, support = 0.01, confidence = 0.7)
 
 aruleRec <- function(data, 
                      productkey, 
