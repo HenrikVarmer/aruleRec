@@ -2,7 +2,9 @@
 
 ### Easy and fast recommendations with association rule learning in R
 
-The aruleRec function takes a dataframe as input in tidy (long) format with one observation (customer-item pair) per row. This data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names must be provided as arguments to the function, along with the hyperparameters for [association rule mining](https://en.wikipedia.org/wiki/Association_rule_learning) - confidence, support, minlen, and maxlen. 
+Let's say all you know about your customers is their purchase history. With this data you want to generate individual recommendations representing cross-selling opportunities. How? [Association Rule Learning.](https://en.wikipedia.org/wiki/Association_rule_learning)
+
+The aruleRec function takes a dataframe as input in tidy (long) format with one observation (customer-item pair) per row. The input data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names are provided as arguments to the function, along with the hyperparameters for rule mining - confidence, support, minlen, and maxlen. 
 
 *Note: This library relies on the [arules](https://cran.r-project.org/web/packages/arules/index.html) package for mining association rules.*
 
@@ -47,4 +49,4 @@ Here, the lhs column constitutes the customer purchase history. The rhs column i
 To do :pencil:
 * Seamlessly suport multiple input formats (transaction data, tidy data, binary incidence matrix, etc.)
 * Build API 
-
+* Add option to "return all" or keep default: only customers with recommendations
