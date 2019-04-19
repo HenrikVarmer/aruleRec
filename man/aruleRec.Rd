@@ -4,8 +4,8 @@
 \alias{aruleRec}
 \title{Easy and fast recommendations with association rule learning in R}
 \usage{
-aruleRec(data, productkey, customerkey, support = 0.01,
-  confidence = 0.7, minlen = 2,
+aruleRec(data, productkey, customerkey, keep_all = FALSE,
+  support = 0.01, confidence = 0.7, minlen = 2,
   maxlen = as.integer(length(unique(data$productkey)) + 1))
 }
 \arguments{
@@ -27,5 +27,5 @@ aruleRec(data, productkey, customerkey, support = 0.01,
 The aruleRec function generates recommendations from an input dataframe.
 }
 \examples{
-aruleRec(data = dat, productkey = ProductKey, customerkey = CustomerKey, minlen = 2, maxlen = 20, support = 0.01, confidence = 0.7)
+aruleRec(data = dat, productkey = ProductKey, customerkey = CustomerKey, keep_all = FALSE, minlen = 2, maxlen = 20, support = 0.01, confidence = 0.7)
 }
