@@ -9,10 +9,14 @@
 #' @examples
 #' rule_predict(rules, newdata, customerkey, productkey)
 
-arulePredict <- function(rules, newdata, customerkey, productkey) {
+arulePredict <- function(rules, newdata, customerkey, productkey, keep_all = FALSE) {
   
   customerkey <- enquo(customerkey)
   productkey  <- enquo(productkey)
+  
+  ruless <- rules %>% 
+    mutate(lhs = as.character(lhs)) %>% 
+    filter(lift >= 1)
   
   lhs_dat <- newdata %>% 
     select(!! customerkey, !! productkey) %>%
@@ -28,10 +32,19 @@ arulePredict <- function(rules, newdata, customerkey, productkey) {
     select(!! customerkey, lhs) %>%
     as.data.frame()
   
-  predictions <- complete_fun(merge(x = lhs_dat, y = rules, by = "lhs", all.x = TRUE), "rhs") %>% 
-    arrange(desc(lift)) %>% 
-    filter(lift >= 1) %>% 
-    as.data.frame()
+  if (is.na(keep_all) | keep_all == FALSE) {
+    predictions <- complete_fun(merge(x = lhs_dat, y = all_rules, by = "lhs"), "rhs") %>% 
+      arrange(desc(lift)) %>% 
+      as.data.frame()
+  } else if (keep_all == TRUE) {
+    predictions <- merge(x = lhs_dat, y = all_rules, by = "lhs", all.x = TRUE) %>% 
+      arrange(desc(lift)) %>% 
+      as.data.frame()
+  }
+  
+  predictions <- predictions %>% 
+    rename(item_history   = lhs,
+           recommendation = rhs)
   
   return(predictions)
   

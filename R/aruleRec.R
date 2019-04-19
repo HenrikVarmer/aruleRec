@@ -34,7 +34,8 @@ rules <- rule_flow(data,
                    maxlen)
 
 all_rules <- rules$rules %>% 
-  mutate(lhs = as.character(lhs))
+  mutate(lhs = as.character(lhs)) %>% 
+  filter(lift >= 1)
 
 lhs_dat <- data %>% 
   select(!! customerkey, !! productkey) %>%
@@ -50,17 +51,19 @@ lhs_dat <- data %>%
   select(!! customerkey, lhs) %>%
   as.data.frame()
 
-if (missing(keep_all) | keep_all == FALSE) {
+if (is.na(keep_all) | keep_all == FALSE) {
   recommendations <- complete_fun(merge(x = lhs_dat, y = all_rules, by = "lhs"), "rhs") %>% 
     arrange(desc(lift)) %>% 
-    filter(lift >= 1) %>% 
     as.data.frame()
 } else if (keep_all == TRUE) {
-  recommendations <- merge(x = lhs_dat, y = all_rules, by = "lhs") %>% 
+  recommendations <- merge(x = lhs_dat, y = all_rules, by = "lhs", all.x = TRUE) %>% 
     arrange(desc(lift)) %>% 
-    filter(lift >= 1) %>% 
     as.data.frame()
 }
+
+recommendations <- recommendations %>% 
+  rename(item_history   = lhs,
+         recommendation = rhs)
 
 export_function(all_rules)
 
