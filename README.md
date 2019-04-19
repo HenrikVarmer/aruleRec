@@ -12,7 +12,7 @@ The ```aruleRec()``` function returns a dataframe with customers and correspondi
 
 Input data structure for generating recommendations:
 
-| CustomerKey   | ProductKey    |
+| customer      | product       |
 | ------------: |--------------:|
 | 1000          | 27            |
 | 1000          | 24            |
@@ -26,8 +26,8 @@ Example function use:
 dat <- read.csv("your_sales_data.csv")
 
 recommendations <- aruleRec(data         = dat,         # dataframe
-                            productkey   = ProductKey,  # item ID column
-                            customerkey  = CustomerKey, # contact ID column
+                            productkey   = product,     # item ID column
+                            customerkey  = customer,    # contact ID column
                             minlen       = 2, 
                             maxlen       = 20, 
                             support      = 0.01, 
@@ -38,11 +38,11 @@ recommendations <- aruleRec(data         = dat,         # dataframe
 
 Example output:
 
-| item_history    | CustomerKey|	recommendation  |	support | confidence  | lift   |	count|
+| item_history    | customer   |	recommendation  |	support   | confidence  | lift   |	count  |
 |----------------:|-----------:|-----------------:|----------:|------------:|-------:|--------:|
-| 20,23,24,27     |     1001   |	           29   |	0.01    | 0.73	    | 4.24   |	1305 |
-| 22,27,33        |     1002   |	           20   |	0.01    | 0.85	    | 1.97   |	1453 |
-| 11,20,33        |     1003   |	           27   |	0.08    | 0.75	    | 1.42   |	1151 |
+| 20,23,24,27     |     1001   |	           29   |	0.01      | 0.73	      | 4.24   |	  1305 |
+| 22,27,33        |     1002   |	           20   |	0.01      | 0.85	      | 1.97   |	  1453 |
+| 11,20,33        |     1003   |	           27   |	0.08      | 0.75	      | 1.42   |	  1151 |
 
 Here, the lhs column constitutes the customer purchase history. The rhs column indicates the cross-selling opportunity based on the mined association rules. 
 
