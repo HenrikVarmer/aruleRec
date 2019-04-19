@@ -9,7 +9,7 @@
 #' @examples
 #' rule_predict(rules, newdata, customerkey, productkey)
 
-rule_predict <- function(rules, newdata, customerkey, productkey) {
+arulePredict <- function(rules, newdata, customerkey, productkey) {
   
   customerkey <- enquo(customerkey)
   productkey  <- enquo(productkey)
