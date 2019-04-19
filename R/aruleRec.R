@@ -50,7 +50,7 @@ lhs_dat <- data %>%
   select(!! customerkey, lhs) %>%
   as.data.frame()
 
-if (missing(keep_all) | keep_all = FALSE) {
+if (missing(keep_all) | keep_all == FALSE) {
   recommendations <- complete_fun(merge(x = lhs_dat, y = all_rules, by = "lhs"), "rhs") %>% 
     arrange(desc(lift)) %>% 
     filter(lift >= 1) %>% 
