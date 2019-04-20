@@ -85,4 +85,5 @@ prediction <- arulePredict(rules,
 To do :pencil:
 * Seamlessly suport multiple input formats (transaction data, tidy data, binary incidence matrix, etc.)
 * Build API 
+
 :heavy_check_mark: Add option to "keep all" or (default): keep only customers with recommendations (added 20/04/2019)
