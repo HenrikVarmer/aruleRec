@@ -62,7 +62,7 @@ dat <- read.csv("your_sales_data.csv")
 
 # train (mine rules)
 rules <- aruleTrain(data          = dat,      # dataframe
-                    productkey    = Item,     #item ID column
+                    productkey    = Item,     # item ID column
                     customerkey   = Customer, # contact ID column
                     minlen        = 2, 
                     maxlen        = 20, 
