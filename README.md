@@ -20,7 +20,7 @@ Input data structure for generating recommendations:
 | 1001          | 27            |
 
 
-aruleRec function use:
+aruleRec function example use:
 
 This function mines recommendations from an input data frame with customers and purchases and applies the mined rules to the same input dataset.
 
@@ -53,7 +53,7 @@ Here, the lhs column constitutes the customer purchase history. The rhs column i
 
 --------
 
-aruleTrain and aulePredict function use:
+aruleTrain and aulePredict function example use:
 
 The aruleTrain function mines recommendations from an input data frame with customers and purchases and stores the mined rules for subsequent prediction with the arulePredict function. The arulePredict function takes a rule data.frame as primary input along with the columns for customer and item and the keep_all argument, which specifies whether to return all customers or just those with recommended items
 
