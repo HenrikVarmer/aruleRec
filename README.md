@@ -61,7 +61,7 @@ The aruleTrain function mines recommendations from an input data frame with cust
 testdat <- read.csv("your_sales_data.csv")
 
 # train (mine rules)
-rules   <- aruleTrain(data          = dat,      # dataframe
+rules   <- aruleTrain(data        = dat,      # dataframe
                     productkey    = Item,     # item ID column
                     customerkey   = Customer, # contact ID column
                     minlen        = 2, 
