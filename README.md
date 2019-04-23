@@ -72,7 +72,7 @@ rules <- aruleTrain(data          = dat,      # dataframe
 newdata <- read.csv("your_new_sales_data.csv")
 
 # predict (make recommendations on a row of new data with previously mined rules)
-prediction <- arulePredict(rules, 
+predict <- arulePredict(rules, 
                            newdata, 
                            Customer, 
                            Item, 
