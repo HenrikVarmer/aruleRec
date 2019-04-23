@@ -27,14 +27,14 @@ This function mines recommendations from an input data frame with customers and 
 ```R
 dat <- read.csv("your_sales_data.csv")
 
-recommendations <- aruleRec(data         = dat,      # dataframe
-                            productkey   = Item,     # item ID column
-                            customerkey  = Customer, # contact ID column
-                            keep_all     = FALSE,    # return all customers or just those with recommended items
-                            minlen       = 2, 
-                            maxlen       = 20, 
-                            support      = 0.01, 
-                            confidence   = 0.1)
+recommendations <- aruleRec(data        = dat,      # dataframe
+                            productkey  = Item,     # item ID column
+                            customerkey = Customer, # contact ID column
+                            keep_all    = FALSE,    # return all customers or just those with recommended items
+                            minlen      = 2, 
+                            maxlen      = 20, 
+                            support     = 0.01, 
+                            confidence  = 0.1)
 
 head(recommendations, 3)
 
@@ -58,25 +58,25 @@ Here, the lhs column constitutes the customer purchase history. The rhs column i
 The aruleTrain function mines recommendations from an input data frame with customers and purchases and stores the mined rules for subsequent prediction with the arulePredict function. The arulePredict function takes a rule data.frame as primary input along with the columns for customer and item and the keep_all argument, which specifies whether to return all customers or just those with recommended items
 
 ```R
-testdat <- read.csv("your_sales_data.csv")
+dat <- read.csv("your_sales_data.csv")
 
 # train (mine rules)
 rules   <- aruleTrain(data        = dat,      # dataframe
-                    productkey    = Item,     # item ID column
-                    customerkey   = Customer, # contact ID column
-                    minlen        = 2, 
-                    maxlen        = 20, 
-                    support       = 0.01, 
-                    confidence    = 0.1)
+                      productkey  = Item,     # item ID column
+                      customerkey = Customer, # contact ID column
+                      minlen      = 2, 
+                      maxlen      = 20, 
+                      support     = 0.01, 
+                      confidence  = 0.1)
 
 newdata <- read.csv("your_new_sales_data.csv")
 
 # predict (make recommendations on a row of new data with previously mined rules)
 predict <- arulePredict(rules, 
-                           newdata, 
-                           Customer, 
-                           Item, 
-                           keep_all = TRUE)
+                        newdata, 
+                        Customer, 
+                        Item, 
+                        keep_all = TRUE)
 
 ```
 
