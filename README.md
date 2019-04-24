@@ -28,7 +28,7 @@ Input data structure for generating recommendations:
 
 ### aruleRec()
 
-This is the main function of the package. It takes an input data frame with customers and purchases, converts it to a transaction object, and mines association rules. When this rule mining is completed, the function looks for LHS (left-hand-side) rule 1:1 matches in a customers purchase history, and recommends the RHS (right-hand-side) of the rule. These recommendations are gathered in a dataframe and returned by the function. In the final dataframe, each row is a recommendation to one particular customer. By default, the function only returns customers with *at least one* recommendation, but this can be changed with the keep_all input argument. 
+This is the main function of the package. It takes an input data frame with customers and purchases, converts it to a transaction object, and mines association rules. When this rule mining is completed, the function looks for LHS (left-hand-side) rule 1:1 matches in a customers purchase history, and recommends the RHS (right-hand-side) of the rule. These recommendations are gathered in a dataframe and returned by the function.
 
 ```R
 dat <- read.csv("your_sales_data.csv")
