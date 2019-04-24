@@ -71,12 +71,14 @@ rules   <- aruleTrain(data        = dat,      # dataframe
                       maxlen      = 20, 
                       support     = 0.01, 
                       confidence  = 0.1)
+```
 
 ### arulePredict()
 
 The arulePredict function takes a rule data.frame as primary input along with the columns for customer and item and the keep_all argument, which specifies whether to return all customers or just those with recommended items
 
 ```R
+
 newdata <- read.csv("your_new_sales_data.csv")
 
 # predict (make recommendations on a row of new data with previously mined rules)
