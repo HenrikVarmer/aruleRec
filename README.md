@@ -4,7 +4,15 @@
 
 Let's say all you know about your customers is their purchase history. With this data you want to generate individual recommendations representing cross-selling opportunities. How? [Association Rule Learning.](https://en.wikipedia.org/wiki/Association_rule_learning)
 
-The aruleRec function takes a dataframe as input in tidy (long) format with one observation (customer-item pair) per row. The input data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names are provided as arguments to the function, along with the hyperparameters for rule mining - confidence, support, minlen, and maxlen. 
+### Installing aruleRec
+Install the package directly from github with devtools. Run the first line if you do not currently have devtools installed.
+
+```R
+# install.packages('devtools') 
+devtools::install_github('HenrikVarmer/aruleRec')
+```
+### Using the functions
+The ```aruleRec()``` function takes a dataframe as input in tidy (long) format with one observation (customer-item pair) per row. The input data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names are provided as arguments to the function, along with the hyperparameters for rule mining - confidence, support, minlen, and maxlen. 
 
 *Note: This library relies on the [arules](https://cran.r-project.org/web/packages/arules/index.html) package for mining association rules.*
 
@@ -20,7 +28,7 @@ Input data structure for generating recommendations:
 | 1001          | 27            |
 
 
-**aruleRec function example use:**
+### aruleRec()
 
 This function mines recommendations from an input data frame with customers and purchases and applies the mined rules to the same input dataset.
 
@@ -53,9 +61,9 @@ Here, the lhs column constitutes the customer purchase history. The rhs column i
 
 --------
 
-**aruleTrain and aulePredict function example use:**
+### aruleTrain()
 
-The aruleTrain function mines recommendations from an input data frame with customers and purchases and stores the mined rules for subsequent prediction with the arulePredict function. The arulePredict function takes a rule data.frame as primary input along with the columns for customer and item and the keep_all argument, which specifies whether to return all customers or just those with recommended items
+The aruleTrain function mines recommendations from an input data frame with customers and purchases and stores the mined rules for subsequent prediction with the arulePredict function. 
 
 ```R
 dat <- read.csv("your_sales_data.csv")
@@ -68,7 +76,12 @@ rules   <- aruleTrain(data        = dat,      # dataframe
                       maxlen      = 20, 
                       support     = 0.01, 
                       confidence  = 0.1)
+```
+### arulePredict()
 
+The arulePredict function takes a rule data.frame as primary input along with the columns for customer and item and the keep_all argument, which specifies whether to return all customers or just those with recommended items
+
+```R
 newdata <- read.csv("your_new_sales_data.csv")
 
 # predict (make recommendations on a row of new data with previously mined rules)
@@ -85,5 +98,6 @@ predict <- arulePredict(rules,
 To do :pencil:
 * Seamlessly suport multiple input formats (transaction data, tidy data, binary incidence matrix, etc.)
 * Build API 
+* Add support for no rules returned by apriori()
 
 :heavy_check_mark: Add option to "keep all" or (default): keep only customers with recommendations (added 20/04/2019)
