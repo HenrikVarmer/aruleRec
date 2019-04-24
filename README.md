@@ -12,9 +12,13 @@ Install the package directly from github with devtools. Run the first line if yo
 devtools::install_github('HenrikVarmer/aruleRec')
 ```
 ### Using the functions
-The ```aruleRec()``` function takes a dataframe as input in tidy (long) format with one observation (customer-item pair) per row. The input data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names are provided as arguments to the function, along with the hyperparameters for rule mining - confidence, support, minlen, and maxlen. 
+There a three core functions in this package: ```aruleRec()```, ```aruleTrain()```, ```arulePredict()```. 
 
-The ```aruleRec()``` function returns a dataframe with customers and corresponding cross-selling recommendations and rule quality parameters. Only customers with recommendations are returned. 
+### aruleRec()
+
+The aruleRec() function takes a dataframe as input in tidy (long) format with one observation (customer-item pair) per row. The input data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names are provided as arguments to the function, along with the hyperparameters for rule mining - confidence, support, minlen, and maxlen.
+
+The aruleRec() function returns a dataframe with customers and corresponding cross-selling recommendations and rule quality parameters. Only customers with recommendations are returned.
 
 Input data structure for generating recommendations:
 
@@ -24,11 +28,6 @@ Input data structure for generating recommendations:
 | 1000          | 24            |
 | 1001          | 22            |
 | 1001          | 27            |
-
-
-### aruleRec()
-
-This is the main function of the package. It takes an input data frame with customers and purchases, converts it to a transaction object, and mines association rules. When this rule mining is completed, the function looks for LHS (left-hand-side) rule 1:1 matches in a customers purchase history, and recommends the RHS (right-hand-side) of the rule. These recommendations are gathered in a dataframe and returned by the function.
 
 ```R
 dat <- read.csv("your_sales_data.csv")
