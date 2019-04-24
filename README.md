@@ -2,7 +2,7 @@
 
 ### Easy and fast recommendations with association rule learning in R
 
-Let's say all you know about your customers is their purchase history. With this data you want to generate individual recommendations representing cross-selling opportunities. How? [Association Rule Learning.](https://en.wikipedia.org/wiki/Association_rule_learning)
+Let's say all you know about your customers is their purchase history. With this data you want to generate individual recommendations representing cross-selling opportunities. How? [Association Rule Learning.](https://en.wikipedia.org/wiki/Association_rule_learning). This library relies on the [arules](https://cran.r-project.org/web/packages/arules/index.html) package for mining association rules and provides a wrapper for easy generation of recommendations with tidy datasets. 
 
 ### Installing aruleRec
 Install the package directly from github with devtools. Run the first line if you do not currently have devtools installed.
@@ -13,8 +13,6 @@ devtools::install_github('HenrikVarmer/aruleRec')
 ```
 ### Using the functions
 The ```aruleRec()``` function takes a dataframe as input in tidy (long) format with one observation (customer-item pair) per row. The input data.frame must contain two columns: a customer ID and a product ID. The data.frame and column names are provided as arguments to the function, along with the hyperparameters for rule mining - confidence, support, minlen, and maxlen. 
-
-*Note: This library relies on the [arules](https://cran.r-project.org/web/packages/arules/index.html) package for mining association rules.*
 
 The ```aruleRec()``` function returns a dataframe with customers and corresponding cross-selling recommendations and rule quality parameters. Only customers with recommendations are returned. 
 
@@ -30,7 +28,7 @@ Input data structure for generating recommendations:
 
 ### aruleRec()
 
-This function mines recommendations from an input data frame with customers and purchases and applies the mined rules to the same input dataset.
+This is the main function of the package. It takes an input data frame with customers and purchases, converts it to a transaction object, and mines association rules. When this rule mining is completed, the function looks for LHS (left-hand-side) rule 1:1 matches in a customers purchase history, and recommends the RHS (right-hand-side) of the rule. These recommendations are gathered in a dataframe and returned by the function. In the final dataframe, each row is a recommendation to one particular customer. By default, the function only returns customers with *at least one* recommendation, but this can be changed with the keep_all input argument. 
 
 ```R
 dat <- read.csv("your_sales_data.csv")
@@ -48,7 +46,6 @@ head(recommendations, 3)
 
 ```
 
-
 Example output:
 
 | item_history    | customer   |	recommendation  |	support   | confidence  | lift   |	count  |
@@ -58,8 +55,6 @@ Example output:
 | 11,20,33        |     1003   |	           27   |	0.08      | 0.75	      | 1.42   |	  1151 |
 
 Here, the lhs column constitutes the customer purchase history. The rhs column indicates the cross-selling opportunity based on the mined association rules. 
-
---------
 
 ### aruleTrain()
 
@@ -76,7 +71,7 @@ rules   <- aruleTrain(data        = dat,      # dataframe
                       maxlen      = 20, 
                       support     = 0.01, 
                       confidence  = 0.1)
-```
+
 ### arulePredict()
 
 The arulePredict function takes a rule data.frame as primary input along with the columns for customer and item and the keep_all argument, which specifies whether to return all customers or just those with recommended items
