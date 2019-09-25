@@ -2,7 +2,7 @@
 
 ### Easy and fast recommendations with association rule learning in R
 
-Let's say all you know about your customers is their purchase history. With this data you want to generate individual recommendations representing cross-selling opportunities. How? [Association Rule Learning.](https://en.wikipedia.org/wiki/Association_rule_learning). This library relies on the [arules](https://cran.r-project.org/web/packages/arules/index.html) package for mining association rules and provides a wrapper for easy generation of recommendations with tidy datasets. 
+Let's say all you know about your customers is their purchase history. With this data you want to generate individual recommendations representing cross-selling opportunities. How? [Association Rule Learning.](https://en.wikipedia.org/wiki/Association_rule_learning) This library relies on the [arules](https://cran.r-project.org/web/packages/arules/index.html) package for mining association rules and simply provides a wrapper for easy generation of recommendations with tidy datasets. 
 
 ### Installing aruleRec
 Install the package directly from github with devtools. Run the first line if you do not currently have devtools installed.
