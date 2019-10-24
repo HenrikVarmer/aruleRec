@@ -20,7 +20,7 @@ The aruleRec() function takes a dataframe as input in tidy (long) format with on
 
 The aruleRec() function returns a dataframe with customers and corresponding cross-selling recommendations and rule quality parameters. Only customers with recommendations are returned.
 
-Input data structure for generating recommendations:
+### Input data structure for generating recommendations:
 
 | customer      | product       |
 | ------------: |--------------:|
@@ -45,7 +45,7 @@ head(recommendations, 3)
 
 ```
 
-Example output:
+### Example output:
 
 | item_history    | customer   |	recommendation  |	support   | confidence  | lift   |	count  |
 |----------------:|-----------:|-----------------:|----------:|------------:|-------:|--------:|
