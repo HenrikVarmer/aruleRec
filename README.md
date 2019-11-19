@@ -92,8 +92,8 @@ predict <- arulePredict(rules,
 --------------------
 
 To do :pencil:
-* Seamlessly suport multiple input formats (transaction data, tidy data, binary incidence matrix, etc.)
-* Build API 
+* Seamlessly suport multiple input types (transaction data, tidy data, binary incidence matrix, etc.) 
 * Add support for no rules returned by apriori()
+* Add nrow support argument
 
 :heavy_check_mark: Add option to "keep all" or (default): keep only customers with recommendations (added 20/04/2019)
