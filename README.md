@@ -22,6 +22,8 @@ The aruleRec() function returns a dataframe with customers and corresponding cro
 
 ### Example input data structure:
 
+The ideal input data structure contains customers in one column, and products in another. Each row is one observation (i.e. one set of customer - item keys). Notice that one customer can have multiple rows, because one row is one purchase of one item. 
+
 | customer      | product       |
 | ------------: |--------------:|
 | 1000          | 27            |
@@ -29,9 +31,9 @@ The aruleRec() function returns a dataframe with customers and corresponding cro
 | 1001          | 22            |
 | 1001          | 27            |
 
-The ideal input data structure contains customers in one column, and products in another. Each row is one observation (i.e. one set of customer - item keys). Notice that one customer can have multiple rows, because one row is one purchase of one item. 
-
 ### Example usage of aruleRec() function:
+
+Load your data and apply the aruleRec() function. Supply the dataframe, the item column name, the customer column name, as well as parameters for the association rule mining algorithm. The optional keep_all argument defines weather all customers should be returned, or only those where the algorithm can make a recommendation. 
 
 ```R
 dat <- read.csv("your_sales_data.csv")
@@ -51,13 +53,13 @@ head(recommendations, 3)
 
 ### Example output:
 
+In the output dataframe returned from the aruleRec() function, the 'item_history' column constitutes the customer purchase history. The 'recommendation' column indicates the cross-selling opportunity based on the mined association rules. 
+
 | item_history    | customer   |	recommendation  |	support   | confidence  | lift   |	count  |
 |----------------:|-----------:|-----------------:|----------:|------------:|-------:|--------:|
 | 20,23,24,27     |     1001   |	           29   |	0.01      | 0.73	      | 4.24   |	  1305 |
 | 22,27,33        |     1002   |	           20   |	0.01      | 0.85	      | 1.97   |	  1453 |
 | 11,20,33        |     1003   |	           27   |	0.08      | 0.75	      | 1.42   |	  1151 |
-
-Here, the lhs column constitutes the customer purchase history. The rhs column indicates the cross-selling opportunity based on the mined association rules. 
 
 ### aruleTrain()
 
