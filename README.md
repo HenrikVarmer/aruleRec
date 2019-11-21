@@ -29,6 +29,8 @@ The aruleRec() function returns a dataframe with customers and corresponding cro
 | 1001          | 22            |
 | 1001          | 27            |
 
+The ideal input data structure contains customers in one column, and products in another. Each row is one observation (i.e. one set of customer - item keys). Notice that one customer can have multiple rows, because one row is one purchase of one item. 
+
 ### Example usage of aruleRec() function:
 
 ```R
