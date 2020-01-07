@@ -53,7 +53,7 @@ head(recommendations, 3)
 
 ### Example output:
 
-In the output dataframe returned from the aruleRec() function, the 'item_history' column constitutes the customer purchase history. The 'recommendation' column indicates the cross-selling opportunity based on the mined association rules. 
+In the output dataframe returned from the aruleRec() function, the 'item_history' column constitutes the customer purchase history. The 'recommendation' column indicates the cross-selling opportunity based on the mined association rules, along with key metrics support (the frequency with which the rule set appears in data), confidence (how often the rules is true), lift (how non-random the rules is), and count (how often the rule occurs in data).
 
 | item_history    | customer   |	recommendation  |	support   | confidence  | lift   |	count  |
 |----------------:|-----------:|-----------------:|----------:|------------:|-------:|--------:|
