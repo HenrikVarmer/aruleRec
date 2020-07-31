@@ -41,7 +41,7 @@ dat <- read.csv("your_sales_data.csv")
 recommendations <- aruleRec(data        = dat,      # dataframe
                             productkey  = Item,     # item ID column
                             customerkey = Customer, # contact ID column
-                            keep_all    = FALSE,    # return all contacts or just those with recommendations
+                            keep_all    = FALSE,    # return all contacts or just rows with recommendations
                             minlen      = 2, 
                             maxlen      = 20, 
                             support     = 0.01, 
