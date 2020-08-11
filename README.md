@@ -22,7 +22,7 @@ The aruleRec() function returns a dataframe with customers and corresponding cro
 
 ### Example input data structure:
 
-The ideal input data structure contains customers in one column, and products in another. Each row is one observation (i.e. one set of customer - item keys). Notice that one customer can have multiple rows, because one row is one purchase of one item. 
+The ideal input data structure contains customers in one column, and products in another. Each row is one observation (i.e. one set of customer - item keys). Notice that one customer can have multiple rows, since a row represents *one* purchase of *one* item. 
 
 | customer      | product       |
 | ------------: |--------------:|
