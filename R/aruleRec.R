@@ -2,7 +2,7 @@
 #' Easy and fast recommendations with association rule learning in R
 #'
 #' The aruleRec function generates recommendations from an input dataframe.
-#' @param data A dataframe containing dataframe as input in tidy format with one customer-item pair per row. This df must contain two columns: a customer ID and a product ID.
+#' @param data A dataframe containing dataframe as input in tidy format with one customer-item pair per row. This df must contain two columns: customer ID and product ID.
 #' @param customerkey The column containing customer ID's
 #' @param productkey The column containing item ID's
 #' @param support Minimum support of the mined association rules
