@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arulerec"
+version = "0.1.0"
+description = "Cross-sell recommendations with association-rule learning (pure-Python Apriori)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Henrik Varmer", email = "henrik@varmer.dk" }]
+keywords = ["association-rules", "apriori", "recommender", "market-basket", "cross-sell"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+pandas = ["pandas>=1.3"]
+test = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/HenrikVarmer/arulerec"
+Issues = "https://github.com/HenrikVarmer/arulerec/issues"
+"R version" = "https://github.com/HenrikVarmer/aruleRec-R"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
