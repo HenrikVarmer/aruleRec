@@ -70,6 +70,21 @@ Only customers with at least one recommendation are returned.
 | `baskets_from_tidy(rows)` | `{user: {items}}` from tidy rows |
 | `Rule`, `Recommendation` | Result dataclasses |
 
+## Note on method
+
+This is textbook [Apriori](https://en.wikipedia.org/wiki/Apriori_algorithm):
+mine the itemsets that appear in at least `min_support` of baskets, build
+`antecedent -> item` rules above `min_confidence`, rank recommendations by
+lift. Every recommendation traces back to a rule you can print and read.
+
+The limits follow from the method. You need enough baskets for support and
+confidence to mean anything. Items rarer than `min_support` are never
+recommended, so this won't solve cold starts. Lowering `min_support` blows up
+the candidate set, so keep it reasonable (and cap `max_len`) on large catalogs.
+And lift measures co-occurrence, not causation. For personalized (user × item)
+recommendations at scale, use a matrix-factorization or embedding model
+instead.
+
 ## R version
 
 The original R implementation lives at
