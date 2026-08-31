@@ -40,7 +40,7 @@ model = ARuleRec(min_support=0.3, min_confidence=0.6).fit(transactions)
 
 for rec in model.recommend({"bread", "butter"}):
     print(rec.as_dict())
-# {'item': 'milk', 'confidence': 0.75, 'lift': 1.07, 'support': 0.6}
+# {'item': 'milk', 'confidence': 0.75, 'lift': 0.9375, 'support': 0.6}
 ```
 
 Recommendations exclude items already in the basket and are ranked by **lift**
