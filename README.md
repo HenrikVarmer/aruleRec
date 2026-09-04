@@ -21,7 +21,7 @@ lift.
 pip install -e ".[test]"
 ```
 
-Zero runtime dependencies (add `.[pandas]` for DataFrame helpers).
+Zero runtime dependencies.
 
 ## Usage
 
